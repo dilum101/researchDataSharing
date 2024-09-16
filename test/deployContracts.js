@@ -1,25 +1,15 @@
 async function main() {
   const DataSharingFactory = await ethers.getContractFactory("DataSharing");
-  const GrantManagementFactory = await ethers.getContractFactory(
-    "GrantManagement"
-  );
+  const GrantManagementFactory = await ethers.getContractFactory("GrantManagement");
 
-  const dataSharing = await DataSharingFactory.deploy();
-  console.log(
-    "DataSharing deployment transaction sent, waiting for confirmation..."
-  );
-
-  await dataSharing.deployTransaction.wait();
+  const dataSharing = await DataSharingFactory.deploy({
+    gasLimit: 3000000 // Adjust this value as needed
+  });
   console.log("DataSharing deployed to:", dataSharing.address);
 
   const grantManagement = await GrantManagementFactory.deploy(
     dataSharing.address
   );
-  console.log(
-    "GrantManagement deployment transaction sent, waiting for confirmation..."
-  );
-
-  await grantManagement.deployTransaction.wait();
   console.log("GrantManagement deployed to:", grantManagement.address);
 }
 

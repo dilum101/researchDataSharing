@@ -10,7 +10,7 @@
   "license": "ISC",
   "description": "",
   "devDependencies": {
-    "@nomicfoundation/hardhat-toolbox": "^5.0.0",
-    "hardhat": "^2.22.9"
+    "@nomicfoundation/hardhat-toolbox": "^2.0.2",
+    "hardhat": "2.11.2"
   }
 }
